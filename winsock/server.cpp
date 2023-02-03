@@ -11,8 +11,9 @@
 #include <iostream>
 #include <ctime>
 #include <thread>
-#include <C:\Users\kkoni\Desktop\cpp\server\winsock\servermsghandler.hpp>
 #include "ToDoList.hpp"
+#include "servermsghandler.hpp"
+
 using namespace std;
 
 // Need to link with Ws2_32.lib
@@ -64,7 +65,7 @@ DWORD WINAPI ReadingThread(LPVOID param)
 
 
 int __cdecl server(void) 
-{   printf("started\n");
+{   cout << "started executing main function\n";
     WSADATA wsaData;
     int iResult;
 
@@ -81,14 +82,15 @@ int __cdecl server(void)
     DWORD dwThreadID;
     string sendbuf;
 
-
+    cout << "initialised all variables\n";
     // Initialize Winsock
     iResult = WSAStartup(MAKEWORD(2,2), &wsaData);
     if (iResult != 0) {
         printf("WSAStartup failed with error: %d\n", iResult);
         return 1;
     }
-
+    
+    cout << "initilised Winsock\n";
     ZeroMemory(&hints, sizeof(hints));
     hints.ai_family = AF_INET;
     hints.ai_socktype = SOCK_STREAM;
@@ -102,7 +104,7 @@ int __cdecl server(void)
         WSACleanup();
         return 1;
     }
-
+    cout << "Resolved the server address and port\n";
     // Create a SOCKET for the server to listen for client connections.
     ListenSocket = socket(result->ai_family, result->ai_socktype, result->ai_protocol);
     if (ListenSocket == INVALID_SOCKET) {
@@ -111,7 +113,7 @@ int __cdecl server(void)
         WSACleanup();
         return 1;
     }
-
+    cout << "Created a SOCKET for the server to listen for client connections.\n";
     // Setup the TCP listening socket
     iResult = bind( ListenSocket, result->ai_addr, (int)result->ai_addrlen);
     if (iResult == SOCKET_ERROR) {
@@ -121,7 +123,7 @@ int __cdecl server(void)
         WSACleanup();
         return 1;
     }
-
+    cout << "Settedup the TCP listening socket\n";
     freeaddrinfo(result);
 
     iResult = listen(ListenSocket, SOMAXCONN);
@@ -140,7 +142,7 @@ int __cdecl server(void)
         WSACleanup();
         return 1;
     }
-
+    cout << "Accepted a client socket\n";
     // No longer need server socket
     closesocket(ListenSocket);
     hThread = CreateThread(NULL, 0, &ReadingThread, (void*)ClientSocket, 0, &dwThreadID);

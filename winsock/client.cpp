@@ -8,7 +8,7 @@
 #include <string>
 #include <ctime>
 #include <thread>
-#include <C:\Users\kkoni\Desktop\cpp\server\winsock\clientmsghandler.hpp>
+#include "clientmsghandler.hpp"
 #include "ToDoList.hpp"
 
 using namespace std;
