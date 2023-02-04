@@ -60,7 +60,8 @@ DWORD WINAPI ReadingThread(LPVOID param)
 }
 
 int __cdecl main(int argc, char **argv) 
-{   
+{   cout << "running on port: "<< DEFAULT_PORT << "\n";
+    cout << "started executing main function\n";
     argc = 2;
     WSADATA wsaData;
     SOCKET ConnectSocket = INVALID_SOCKET;
@@ -150,6 +151,9 @@ int __cdecl main(int argc, char **argv)
                     std::cout << "Error at send(): " << WSAGetLastError() << std::endl;
                     break;
                 }
+            }
+            if (!toSend.size()> 0){
+                Sleep(50);
             }
         }
         while (true);

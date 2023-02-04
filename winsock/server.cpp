@@ -66,6 +66,7 @@ DWORD WINAPI ReadingThread(LPVOID param)
 
 int __cdecl server(void) 
 {   cout << "started executing main function\n";
+    cout << "running on port: "<< DEFAULT_PORT << "\n";
     WSADATA wsaData;
     int iResult;
 
@@ -164,6 +165,10 @@ int __cdecl server(void)
                     std::cout << "Error at send(): " << WSAGetLastError() << std::endl;
                     break;
                 }
+                
+            }
+            if ( !toSend.size()> 0){
+                Sleep(50);
             }
         }
         while (true);
