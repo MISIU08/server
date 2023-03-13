@@ -1,0 +1,19 @@
+ Il volume nell'unit… C Š Michal-SSD
+ Numero di serie del volume: BEE2-EAAC
+
+ Directory di C:\Users\kkoni\Desktop\cpp\server\winsock\externalmashine
+
+12/03/2023  11:32    <DIR>          .
+12/03/2023  11:32    <DIR>          ..
+08/03/2023  19:32    <DIR>          .vscode
+18/02/2023  14:27    <DIR>          client
+12/03/2023  11:23             3.006 client.cpp
+12/03/2023  11:41             1.195 comand-executor.cpp
+12/03/2023  11:46    <DIR>          exe
+08/03/2023  18:46               812 getFile.hpp
+12/03/2023  11:06    <DIR>          make
+05/03/2023  14:53    <DIR>          server
+11/03/2023  19:28               524 server.cpp
+18/02/2023  14:46             1.030 ToDoList.hpp
+               5 File          6.567 byte
+               7 Directory  92.521.852.928 byte disponibili
